@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Services | Hi-Venture',
-  description: 'Sales strategy, brand, tech, and operations consulting for UK SMEs in compliance and B2B services.',
+  description: 'Sales strategy, brand, social, tech, and operations consulting for UK SMEs in compliance and B2B services.',
 }
 
 const services = [
@@ -17,14 +17,14 @@ const services = [
     ),
     title: 'Sales Strategy',
     tagline: 'Build a pipeline that compounds',
-    desc: 'From diagnosis to architecture — we design and implement the sales engine your business needs to grow consistently.',
+    desc: 'Audit, structure, and rebuild your sales function. CRM, pipeline, cross-sell mapping — or embed us as your fractional sales team.',
     bullets: [
       'Sales process audit and gap analysis',
       'Pipeline architecture and stage definition',
-      'Close rate and conversion optimisation',
       'Cross-sell and upsell programme design',
       'Pricing and proposal strategy',
       'CRM and activity framework setup',
+      'Fractional sales team embedding',
     ],
     accent: '#1a6ef5',
   },
@@ -39,16 +39,39 @@ const services = [
     ),
     title: 'Brand & Website',
     tagline: 'Show up like a business that wins',
-    desc: 'B2B buyers judge credibility fast. We build brand identity and digital presence that earns trust before the first call.',
+    desc: 'Full rebrand in-house. New positioning, identity, website, and marketing collateral — built and owned by you.',
     bullets: [
       'Brand identity and messaging development',
       'Website design and build (Next.js)',
       'Positioning and value proposition',
       'Proposal and pitch deck templates',
-      'Social and content strategy',
-      'Email and nurture sequence design',
+      'Service pages and case studies',
+      'Marketing collateral and sales assets',
     ],
     accent: '#00d68f',
+  },
+  {
+    id: 'social-marketing',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="18" cy="5" r="3" stroke="#f0a500" strokeWidth="1.5"/>
+        <circle cx="6" cy="12" r="3" stroke="#f0a500" strokeWidth="1.5"/>
+        <circle cx="18" cy="19" r="3" stroke="#f0a500" strokeWidth="1.5"/>
+        <path d="M8.7 10.7 L15.3 6.3 M8.7 13.3 L15.3 17.7" stroke="#f0a500" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+    title: 'Social & Marketing',
+    tagline: 'Stay visible. Stay relevant.',
+    desc: 'Ongoing social media management, content creation, campaigns, and lead generation. Included from Build tier upwards.',
+    bullets: [
+      'LinkedIn and social media management',
+      'Content creation and scheduling',
+      'Lead generation campaigns',
+      'Email marketing and nurture sequences',
+      'Google and paid media strategy',
+      'Monthly performance reporting',
+    ],
+    accent: '#f0a500',
   },
   {
     id: 'tech-systems',
@@ -61,14 +84,14 @@ const services = [
     ),
     title: 'Tech & Systems',
     tagline: 'Less friction. More selling.',
-    desc: 'The right tools, properly implemented. CRM, automation, AI, and reporting — set up to make your team faster, not busier.',
+    desc: 'Client portals, online ordering, engineer job management, reporting dashboards. Retain and licence, or build and hand over.',
     bullets: [
       'CRM selection, setup and adoption',
+      'Client portal design and build',
+      'Online ordering and job management',
       'Sales automation and workflow design',
-      'AI tools integration and prompting',
+      'AI tools integration',
       'Reporting and KPI dashboard build',
-      'Proposal and quoting system setup',
-      'Tech stack audit and consolidation',
     ],
     accent: '#4d9fff',
   },
@@ -76,22 +99,22 @@ const services = [
     id: 'operations',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 3 L21 7.5 V16.5 L12 21 L3 16.5 V7.5 Z" stroke="#f0a500" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M12 3 V21 M3 7.5 L12 12 L21 7.5" stroke="#f0a500" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M12 3 L21 7.5 V16.5 L12 21 L3 16.5 V7.5 Z" stroke="#8899bb" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 3 V21 M3 7.5 L12 12 L21 7.5" stroke="#8899bb" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
     title: 'Operations',
-    tagline: 'Scale without the chaos',
-    desc: 'Processes, team structure, and hiring frameworks designed to grow headcount and revenue without losing quality or control.',
+    tagline: 'Find what\'s leaking. Fix it.',
+    desc: 'Process audits, workflow redesign, margin improvement. We find what\'s leaking profit and fix it.',
     bullets: [
       'Sales team structure and role design',
       'Onboarding and training programme build',
       'Performance management framework',
-      'Hiring brief and interview process design',
-      'Service delivery and ops process mapping',
+      'Process mapping and workflow redesign',
+      'Margin analysis and improvement',
       'Compliance and H&S operations support',
     ],
-    accent: '#f0a500',
+    accent: '#8899bb',
   },
 ]
 
@@ -106,10 +129,10 @@ export default function ServicesPage() {
             <span className="text-[#8899bb] text-sm">What we do</span>
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Four pillars. One commercial engine.
+            Five pillars. One partner.
           </h1>
           <p className="text-[#8899bb] text-lg max-w-2xl mx-auto">
-            Hi-Venture works across sales strategy, brand, tech, and operations — because growth doesn't come from fixing one thing in isolation.
+            Growth doesn't come from fixing one thing in isolation. We work across the full commercial stack — sales, brand, social, tech, and operations.
           </p>
         </div>
       </section>
