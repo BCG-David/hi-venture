@@ -9,7 +9,7 @@ const pillars = [
       </svg>
     ),
     label: 'Sales Strategy',
-    desc: 'Pipeline architecture, team structure, and close-rate improvement that compound over time.',
+    desc: 'Audit, structure, and rebuild your sales function. CRM, pipeline, cross-sell mapping — or embed us as your fractional sales team.',
   },
   {
     icon: (
@@ -19,7 +19,7 @@ const pillars = [
       </svg>
     ),
     label: 'Brand & Website',
-    desc: 'Identity and digital presence built for credibility with B2B buyers from day one.',
+    desc: 'Full rebrand in-house. New positioning, identity, website, and marketing collateral — built and owned by you.',
   },
   {
     icon: (
@@ -29,7 +29,7 @@ const pillars = [
       </svg>
     ),
     label: 'Tech & Systems',
-    desc: 'CRM, automation, and AI tools that reduce friction and free your team to sell.',
+    desc: 'Client portals, online ordering, job management, reporting dashboards. Retain and licence, or build and hand over.',
   },
   {
     icon: (
@@ -39,15 +39,15 @@ const pillars = [
       </svg>
     ),
     label: 'Operations',
-    desc: 'Processes, reporting, and hiring frameworks that scale without breaking.',
+    desc: 'Process audits, workflow redesign, margin improvement. We find what\'s leaking profit and fix it.',
   },
 ]
 
 const metrics = [
-  { value: '£6.9m→£10m', label: 'Revenue grown' },
-  { value: '10→22', label: 'Services scaled' },
-  { value: '+51%', label: 'AOV increase' },
-  { value: '15+', label: 'Team managed' },
+  { value: '40+', label: 'Years combined experience' },
+  { value: '£10m+', label: 'Revenue grown for clients' },
+  { value: '5', label: 'Pillars of growth' },
+  { value: '3', label: 'Peer brands in the group' },
 ]
 
 export default function HomePage() {
@@ -55,17 +55,15 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-        {/* Background */}
         <div className="absolute inset-0 grid-bg opacity-40" />
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#1a6ef5]/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative max-w-6xl mx-auto px-6 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left */}
             <div>
               <div className="inline-flex items-center gap-2 bg-[#1a6ef5]/10 border border-[#1a6ef5]/20 rounded-full px-4 py-1.5 mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00d68f] pulse-dot"></span>
-                <span className="text-[#8899bb] text-sm">UK Sales & Growth Consultancy</span>
+                <span className="text-[#8899bb] text-sm">Growth consultancy for compliance & H&S businesses</span>
               </div>
 
               <h1 className="text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-6">
@@ -77,12 +75,12 @@ export default function HomePage() {
               </h1>
 
               <p className="text-[#8899bb] text-lg leading-relaxed mb-8 max-w-lg">
-                Hi-Venture helps UK SMEs in compliance, H&S, and B2B services build sales engines that actually work — with the systems, strategy, and hands-on expertise to back it up.
+                Most compliance businesses are good at the work — not the growth. Hi-Venture fixes that. Sales strategy, brand, tech, and operations from a team that has lived this sector for decades.
               </p>
 
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact" className="btn-primary">
-                  Book a call
+                  Book a discovery call
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M3 8 H13 M9 4 L13 8 L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
@@ -92,7 +90,6 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              {/* Metrics */}
               <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {metrics.map(m => (
                   <div key={m.label}>
@@ -103,7 +100,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: ROI Calculator */}
             <div>
               <ROICalculator />
             </div>
@@ -115,9 +111,9 @@ export default function HomePage() {
       <section className="section bg-[#0d1222]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Four pillars of growth</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Five pillars. One partner.</h2>
             <p className="text-[#8899bb] max-w-xl mx-auto">
-              We work across the full commercial stack — not just one corner of it.
+              Growth doesn't come from fixing one thing in isolation. We work across the full commercial stack.
             </p>
           </div>
 
@@ -135,19 +131,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Hi-Venture */}
+      {/* The problem we solve */}
       <section className="section">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-                Built by someone who's done it, not just advised on it
+                We are not consultants who have read about compliance. We have lived it.
               </h2>
               <p className="text-[#8899bb] leading-relaxed mb-4">
-                Hi-Venture is led by a senior commercial operator who has grown a compliance business from £6.9m to £10m, managed a 15-person sales team, and built scalable processes across 22 service lines.
+                Hi-Venture is led by senior operators with 40+ years of combined real-world compliance and sales experience — managing teams, winning clients, building revenue from cold, and running operations in this sector.
               </p>
               <p className="text-[#8899bb] leading-relaxed mb-6">
-                This isn't generic consultancy. Every engagement is hands-on, data-driven, and specific to your market and team.
+                We combine that experience with the best of modern technology — AI, automation, and smart systems — to give clients a competitive edge that simply wasn't available before.
               </p>
               <Link href="/about" className="btn-outline">
                 About Hi-Venture
@@ -159,14 +155,14 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 gap-4">
               {[
-                { label: 'Compliance & H&S sector expertise', desc: 'Deep knowledge of how these buyers think, what they need, and where revenue hides.' },
-                { label: 'Operator background, not just theory', desc: 'Salesperson of the Year, exceeded target 41 of 44 months, grew team revenue substantially.' },
-                { label: 'Flexible engagement model', desc: 'Retainer, % of GP, or hybrid — aligned to your budget and how you work best.' },
+                { label: 'No sales engine', desc: 'Owner-led sales, reactive pipeline, no structure. Revenue is inconsistent and growth is accidental. We fix that.' },
+                { label: 'Untapped wallet share', desc: 'Clients buy one service. The whitespace — additional services they\'re buying elsewhere — is enormous and ignored.' },
+                { label: 'Weak brand and systems', desc: 'Dated websites, manual processes, no client portal. Operating below their potential. We change the picture.' },
               ].map(item => (
                 <div key={item.label} className="card p-5 flex gap-4">
-                  <div className="w-5 h-5 rounded-full bg-[#00d68f]/20 flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <div className="w-5 h-5 rounded-full bg-[#1a6ef5]/20 flex-shrink-0 flex items-center justify-center mt-0.5">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 5 L4 7 L8 3" stroke="#00d68f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 5 L4 7 L8 3" stroke="#1a6ef5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   <div>
@@ -180,20 +176,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA banner */}
+      {/* Less than the cost of one hire */}
       <section className="section bg-[#0d1222]">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Ready to grow?</h2>
-          <p className="text-[#8899bb] mb-8 text-lg">
-            Book a free 30-minute discovery call. No pitch, no pressure — just a direct conversation about where your sales are now and where they could be.
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+            Less than the cost of one hire.<br />None of the risk.
+          </h2>
+          <p className="text-[#8899bb] mb-8 text-lg max-w-2xl mx-auto">
+            A fully-loaded salesperson costs £3,300+/month before you factor in NI, pension, recruitment fees, notice periods, and performance risk. Hi-Venture starts at £299/month — with no fixed overhead and a performance model that means we only win when you do.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/contact" className="btn-primary">
-              Book a free call
-            </Link>
-            <Link href="/pricing" className="btn-outline">
-              View pricing
-            </Link>
+            <Link href="/pricing" className="btn-primary">See pricing</Link>
+            <Link href="/contact" className="btn-outline">Book a free call</Link>
           </div>
         </div>
       </section>
