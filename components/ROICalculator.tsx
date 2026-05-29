@@ -1,121 +1,125 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 
 export default function ROICalculator() {
-  const [revenue, setRevenue] = useState(500000)
-  const [team, setTeam] = useState(3)
-  const [conversion, setConversion] = useState(20)
+  const [clients, setClients] = useState(100)
+  const [avgService, setAvgService] = useState(500)
+  const [conversion, setConversion] = useState(30)
+  const [gpMargin, setGpMargin] = useState(50)
 
-  const currentRevenue = revenue
-  const improvedConversion = Math.min(conversion + 15, 60)
-  const upliftFactor = improvedConversion / conversion
-  const projectedRevenue = Math.round(currentRevenue * upliftFactor)
-  const uplift = projectedRevenue - currentRevenue
-  const roiMultiple = Math.round((uplift / 18000) * 10) / 10
+  // Logic: 60% of client base has upsell opportunity
+  // conversion % of those buy an additional service
+  const upsellOpportunity = Math.round(clients * 0.6)
+  const servicesSold = Math.round(upsellOpportunity * (conversion / 100))
+  const revenueGenerated = servicesSold * avgService
+  const gpGenerated = revenueGenerated * (gpMargin / 100)
+  const hvFee = Math.round(gpGenerated * 0.25)
+  const netGP = Math.round(gpGenerated - hvFee)
 
   const formatCurrency = (n: number) =>
-    n >= 1000000
-      ? `£${(n / 1000000).toFixed(1)}m`
-      : `£${(n / 1000).toFixed(0)}k`
+    n >= 1000 ? `£${(n / 1000).toFixed(1)}k` : `£${n}`
 
   return (
     <div className="bg-[#141b30] border border-white/8 rounded-2xl p-8">
-      <div className="flex items-center gap-3 mb-6">
+      <div className="flex items-center gap-3 mb-2">
         <div className="w-8 h-8 rounded-lg bg-[#1a6ef5]/20 flex items-center justify-center">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M2 12 L6 8 L9 10 L14 4" stroke="#1a6ef5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <h3 className="text-white font-semibold text-lg">Revenue Uplift Calculator</h3>
+        <h3 className="text-white font-semibold text-lg">Upsell Opportunity Calculator</h3>
       </div>
+      <p className="text-[#8899bb] text-xs mb-6">Estimate what's already in your client base — waiting to be sold.</p>
 
-      <div className="space-y-6">
-        {/* Current revenue */}
+      <div className="space-y-5">
         <div>
           <div className="flex justify-between mb-2">
-            <label className="text-[#8899bb] text-sm">Current annual revenue</label>
-            <span className="text-white text-sm font-medium">{formatCurrency(revenue)}</span>
+            <label className="text-[#8899bb] text-sm">Active clients</label>
+            <span className="text-white text-sm font-medium">{clients}</span>
           </div>
-          <input
-            type="range"
-            min={100000}
-            max={5000000}
-            step={50000}
-            value={revenue}
-            onChange={e => setRevenue(Number(e.target.value))}
-            className="w-full accent-[#1a6ef5] cursor-pointer"
-          />
+          <input type="range" min={20} max={500} step={10} value={clients}
+            onChange={e => setClients(Number(e.target.value))}
+            className="w-full accent-[#1a6ef5] cursor-pointer" />
           <div className="flex justify-between mt-1">
-            <span className="text-[#8899bb] text-xs">£100k</span>
-            <span className="text-[#8899bb] text-xs">£5m</span>
-          </div>
-        </div>
-
-        {/* Team size */}
-        <div>
-          <div className="flex justify-between mb-2">
-            <label className="text-[#8899bb] text-sm">Sales team size</label>
-            <span className="text-white text-sm font-medium">{team} {team === 1 ? 'person' : 'people'}</span>
-          </div>
-          <input
-            type="range"
-            min={1}
-            max={20}
-            step={1}
-            value={team}
-            onChange={e => setTeam(Number(e.target.value))}
-            className="w-full accent-[#1a6ef5] cursor-pointer"
-          />
-          <div className="flex justify-between mt-1">
-            <span className="text-[#8899bb] text-xs">1</span>
             <span className="text-[#8899bb] text-xs">20</span>
+            <span className="text-[#8899bb] text-xs">500</span>
           </div>
         </div>
 
-        {/* Conversion rate */}
         <div>
           <div className="flex justify-between mb-2">
-            <label className="text-[#8899bb] text-sm">Current close rate</label>
+            <label className="text-[#8899bb] text-sm">Avg service value</label>
+            <span className="text-white text-sm font-medium">£{avgService}</span>
+          </div>
+          <input type="range" min={100} max={2000} step={50} value={avgService}
+            onChange={e => setAvgService(Number(e.target.value))}
+            className="w-full accent-[#1a6ef5] cursor-pointer" />
+          <div className="flex justify-between mt-1">
+            <span className="text-[#8899bb] text-xs">£100</span>
+            <span className="text-[#8899bb] text-xs">£2,000</span>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex justify-between mb-2">
+            <label className="text-[#8899bb] text-sm">Upsell conversion rate</label>
             <span className="text-white text-sm font-medium">{conversion}%</span>
           </div>
-          <input
-            type="range"
-            min={5}
-            max={45}
-            step={1}
-            value={conversion}
+          <input type="range" min={10} max={60} step={5} value={conversion}
             onChange={e => setConversion(Number(e.target.value))}
-            className="w-full accent-[#1a6ef5] cursor-pointer"
-          />
+            className="w-full accent-[#1a6ef5] cursor-pointer" />
           <div className="flex justify-between mt-1">
-            <span className="text-[#8899bb] text-xs">5%</span>
-            <span className="text-[#8899bb] text-xs">45%</span>
+            <span className="text-[#8899bb] text-xs">10%</span>
+            <span className="text-[#8899bb] text-xs">60%</span>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex justify-between mb-2">
+            <label className="text-[#8899bb] text-sm">GP margin</label>
+            <span className="text-white text-sm font-medium">{gpMargin}%</span>
+          </div>
+          <input type="range" min={20} max={80} step={5} value={gpMargin}
+            onChange={e => setGpMargin(Number(e.target.value))}
+            className="w-full accent-[#1a6ef5] cursor-pointer" />
+          <div className="flex justify-between mt-1">
+            <span className="text-[#8899bb] text-xs">20%</span>
+            <span className="text-[#8899bb] text-xs">80%</span>
           </div>
         </div>
       </div>
 
       {/* Results */}
-      <div className="mt-6 pt-6 border-t border-white/8 grid grid-cols-3 gap-4">
-        <div className="text-center">
-          <div className="text-[#8899bb] text-xs mb-1">Current</div>
-          <div className="text-white font-bold text-xl">{formatCurrency(currentRevenue)}</div>
+      <div className="mt-6 pt-5 border-t border-white/8">
+        <div className="grid grid-cols-2 gap-3 mb-4">
+          <div className="bg-[#0a0f1e] rounded-xl p-3">
+            <div className="text-[#8899bb] text-xs mb-1">Additional services sold</div>
+            <div className="text-white font-bold text-xl">{servicesSold}</div>
+            <div className="text-[#8899bb] text-xs mt-0.5">{upsellOpportunity} clients in scope</div>
+          </div>
+          <div className="bg-[#0a0f1e] rounded-xl p-3">
+            <div className="text-[#8899bb] text-xs mb-1">Revenue generated</div>
+            <div className="text-[#00d68f] font-bold text-xl">{formatCurrency(revenueGenerated)}</div>
+            <div className="text-[#8899bb] text-xs mt-0.5">for your business</div>
+          </div>
         </div>
-        <div className="text-center">
-          <div className="text-[#8899bb] text-xs mb-1">Projected</div>
-          <div className="text-[#00d68f] font-bold text-xl">{formatCurrency(projectedRevenue)}</div>
-        </div>
-        <div className="text-center">
-          <div className="text-[#8899bb] text-xs mb-1">Uplift</div>
-          <div className="text-[#f0a500] font-bold text-xl">+{formatCurrency(uplift)}</div>
-        </div>
-      </div>
 
-      <div className="mt-4 bg-[#1a6ef5]/10 border border-[#1a6ef5]/20 rounded-xl p-4 text-center">
-        <p className="text-[#8899bb] text-sm">
-          Estimated ROI: <span className="text-white font-semibold">{roiMultiple}× return</span> on a standard engagement
-        </p>
-        <p className="text-[#8899bb] text-xs mt-1">Based on typical 15pp close-rate improvement</p>
+        <div className="bg-[#1a6ef5]/10 border border-[#1a6ef5]/20 rounded-xl p-4">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-[#8899bb] text-sm">Your GP at {gpMargin}%</span>
+            <span className="text-white font-semibold">{formatCurrency(gpGenerated)}</span>
+          </div>
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-[#8899bb] text-sm">Hi-Venture fee (25% of GP)</span>
+            <span className="text-[#8899bb] font-medium">−{formatCurrency(hvFee)}</span>
+          </div>
+          <div className="flex justify-between items-center pt-2 border-t border-white/10">
+            <span className="text-white text-sm font-semibold">Your net GP gain</span>
+            <span className="text-[#f0a500] font-bold text-lg">{formatCurrency(netGP)}</span>
+          </div>
+        </div>
+        <p className="text-[#8899bb] text-xs mt-2 text-center">Based on 60% of clients having upsell opportunity. Your figures will vary.</p>
       </div>
     </div>
   )
