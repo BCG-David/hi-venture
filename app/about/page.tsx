@@ -3,32 +3,8 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About | Hi-Venture',
-  description: 'Hi-Venture is led by a senior commercial operator with a decade of B2B sales leadership in compliance and H&S.',
+  description: 'Hi-Venture is led by senior compliance and sales operators with 40+ years of combined real-world experience.',
 }
-
-const career = [
-  {
-    role: 'Head of Sales',
-    company: 'Office Test (London)',
-    period: '2022 – Present',
-    bullets: [
-      'Grew revenue from ~£6.9m to ~£10m',
-      'Expanded services from 10 to 22',
-      'Increased AOV by ~51%; core service revenue up ~86%',
-      'Managed team of 15–18 salespeople',
-    ],
-  },
-  {
-    role: 'Senior BDM',
-    company: 'SG World Ltd',
-    period: 'Previous',
-    bullets: [
-      'Salesperson of the Year',
-      'Exceeded sales target 41 of 44 months',
-      'B2B sales across compliance and workplace safety',
-    ],
-  },
-]
 
 const qualifications = [
   'NEBOSH General Certificate',
@@ -66,45 +42,32 @@ export default function AboutPage() {
               <h2 className="text-2xl font-bold text-white mb-4">The background</h2>
               <div className="space-y-4 text-[#8899bb] leading-relaxed">
                 <p>
-                  Hi-Venture is founded by a sales leader with over a decade of hands-on commercial experience in UK B2B services, particularly in workplace compliance and health & safety.
+                  Hi-Venture is founded by senior operators with over 40 years of combined hands-on experience in UK compliance, health & safety, and B2B sales — spanning individual selling, team management, pricing strategy, product expansion, process design, and commercial technology.
                 </p>
                 <p>
-                  The work spans every layer of the commercial function: individual selling, team management, pricing strategy, product expansion, process design, and CRM/tech architecture.
+                  We have managed sales teams, won clients from cold, built recurring revenue models, and run the operational side of compliance businesses. This isn't a theoretical framework — it's a track record.
                 </p>
                 <p>
-                  The most recent chapter: taking over full sales management of a London compliance business in April 2022 and growing revenue from £6.9m to £10m — while expanding the service portfolio from 10 to 22 lines and increasing average order value by over 50%.
-                </p>
-                <p>
-                  Hi-Venture was built to bring that operator knowledge to SMEs who are good at what they do but need commercial architecture that matches their ambition.
+                  We combine that experience with modern technology — AI, automation, and smart systems — to give compliance businesses a competitive edge that simply wasn't available before.
                 </p>
               </div>
             </div>
 
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-4">Career track record</h2>
-              <div className="space-y-4">
-                {career.map(item => (
-                  <div key={item.role} className="card p-5">
-                    <div className="flex justify-between items-start mb-3">
-                      <div>
-                        <h3 className="text-white font-semibold">{item.role}</h3>
-                        <p className="text-[#8899bb] text-sm">{item.company}</p>
-                      </div>
-                      <span className="text-[#8899bb] text-xs bg-white/5 px-2 py-1 rounded-full">{item.period}</span>
-                    </div>
-                    <ul className="space-y-1">
-                      {item.bullets.map(b => (
-                        <li key={b} className="flex items-start gap-2">
-                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="mt-0.5 flex-shrink-0">
-                            <path d="M2 6 L5 9 L10 3" stroke="#00d68f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                          <span className="text-[#8899bb] text-sm">{b}</span>
-                        </li>
-                      ))}
-                    </ul>
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold text-white mb-4">What the group has delivered</h2>
+              {[
+                { metric: '40+', label: 'Years combined compliance & sales experience', desc: 'Across sales leadership, business development, operations, and technical compliance.' },
+                { metric: '£10m+', label: 'Revenue grown for clients', desc: 'Through upsell programmes, new client acquisition, and systematic commercial improvement.' },
+                { metric: '3', label: 'Peer brands in the Hi-Venture group', desc: 'Hi-Venture, RiskSorted, and British Compliance Guide — a full commercial ecosystem.' },
+              ].map(item => (
+                <div key={item.label} className="card p-5 flex gap-4">
+                  <div className="text-[#1a6ef5] font-bold text-2xl w-16 flex-shrink-0">{item.metric}</div>
+                  <div>
+                    <h3 className="text-white font-semibold text-sm mb-1">{item.label}</h3>
+                    <p className="text-[#8899bb] text-sm">{item.desc}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -113,7 +76,10 @@ export default function AboutPage() {
       {/* Qualifications */}
       <section className="section bg-[#0d1222]">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-white mb-6">Compliance qualifications</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">Compliance qualifications</h2>
+          <p className="text-[#8899bb] text-sm mb-6 max-w-lg">
+            Domain knowledge across fire risk assessment, PAT testing, legionella, electrical, COSHH, DSE, and emergency lighting — on both the sales and technical sides.
+          </p>
           <div className="flex flex-wrap gap-3">
             {qualifications.map(q => (
               <div key={q} className="flex items-center gap-2 bg-[#141b30] border border-white/8 rounded-full px-4 py-2">
@@ -124,24 +90,42 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-          <p className="text-[#8899bb] text-sm mt-4 max-w-lg">
-            Domain knowledge in fire risk assessment, PAT testing, legionella, electrical, COSHH, DSE, and emergency lighting — across sales, audit, and procurement.
-          </p>
+        </div>
+      </section>
+
+      {/* The ecosystem */}
+      <section className="section">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-bold text-white mb-3">More than a consultancy. A gateway to live commercial opportunity.</h2>
+            <p className="text-[#8899bb] max-w-xl mx-auto text-sm">Hi-Venture sits within a group of peer brands — each designed to help compliance businesses grow and win.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { name: 'Hi-Venture', tag: 'Growth consultancy', desc: 'Sales, brand, social, tech, and operations support. Your growth partner.' },
+              { name: 'RiskSorted', tag: 'Compliance marketplace', desc: 'UK marketplace connecting businesses with vetted specialists. Eligible Hi-Venture clients onboarded free.' },
+              { name: 'British Compliance Guide', tag: 'Editorial platform', desc: 'Independent editorial property. Standards, best practice, and visibility for vetted partners.' },
+            ].map(item => (
+              <div key={item.name} className="card p-6">
+                <h3 className="text-white font-semibold mb-1">{item.name}</h3>
+                <p className="text-[#1a6ef5] text-xs font-medium mb-3">{item.tag}</p>
+                <p className="text-[#8899bb] text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Approach */}
-      <section className="section">
+      <section className="section bg-[#0d1222]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">How we approach every engagement</h2>
-          <p className="text-[#8899bb] mb-12">
-            Not templates. Not off-the-shelf programmes. Every client gets a diagnosis first.
-          </p>
+          <p className="text-[#8899bb] mb-12">Not templates. Not off-the-shelf programmes. Every client gets a diagnosis first.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
             {[
-              { step: '01', title: 'Diagnose', body: 'We start by understanding exactly where your revenue is being lost — pipeline leakage, close rate, AOV, retention, or all four.' },
-              { step: '02', title: 'Design', body: 'We build a specific plan covering strategy, systems, and team capability — with clear milestones and measurable targets.' },
-              { step: '03', title: 'Deliver', body: 'We work alongside you, not at arm\'s length. Hands-on implementation, coaching, and accountability throughout.' },
+              { step: '01', title: 'Discovery call', body: '30 minutes. We map your current revenue, client base, and where the whitespace sits.' },
+              { step: '02', title: 'Opportunity report', body: 'We model your upsell potential, identify quick wins, and recommend a starting tier.' },
+              { step: '03', title: 'Start on your terms', body: 'Choose performance model or retainer. We begin with one clear workstream and prove the value.' },
             ].map(item => (
               <div key={item.step} className="card p-6">
                 <div className="text-[#1a6ef5] font-bold text-sm mb-3">{item.step}</div>
@@ -154,13 +138,11 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="section bg-[#0d1222]">
+      <section className="section">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Let's talk about your business</h2>
           <p className="text-[#8899bb] mb-8">A 30-minute call is enough to know if there's a fit.</p>
-          <Link href="/contact" className="btn-primary">
-            Book a free discovery call
-          </Link>
+          <Link href="/contact" className="btn-primary">Book a free discovery call</Link>
         </div>
       </section>
     </>
