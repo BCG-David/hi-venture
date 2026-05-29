@@ -3,16 +3,16 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Pricing | Hi-Venture',
-  description: 'Flexible pricing for UK SMEs. Retainer, % of GP, or hybrid engagement models. Entry from £299/month.',
+  description: 'Flexible pricing for UK SMEs. Retainer or performance-only model. Entry from £299/month.',
 }
 
 const tiers = [
   {
-    name: 'Foundation',
+    name: 'Spark',
     price: '£299',
     period: '/month',
-    tagline: 'For SMEs ready to get structured',
-    desc: 'Strategy, accountability, and a clear commercial roadmap. Best for businesses that need direction more than delivery.',
+    tagline: 'For businesses getting structured',
+    desc: 'Strategy, accountability, and a clear commercial roadmap. Best for businesses that need direction before full delivery.',
     features: [
       'Monthly strategy session (2hr)',
       'Sales process audit (Month 1)',
@@ -26,35 +26,35 @@ const tiers = [
     accent: '#4d9fff',
   },
   {
-    name: 'Growth',
-    price: 'From £999',
+    name: 'Scale',
+    price: '£1,750',
     period: '/month',
-    tagline: 'For SMEs serious about scaling',
-    desc: 'Hands-on delivery across sales, brand, or tech — plus strategy. We work alongside your team, not at arm\'s length.',
+    tagline: 'For businesses serious about growing',
+    desc: 'Hands-on delivery across sales, brand, social, and tech — plus strategy. We work alongside your team, not at arm\'s length.',
     features: [
-      'Everything in Foundation',
+      'Everything in Spark',
       'Weekly working sessions',
       'Active pipeline and team coaching',
-      'Tech and CRM implementation support',
-      'Brand and messaging work',
-      'Proposal and pricing strategy',
+      'Brand, website and social media management',
+      'Tech and CRM implementation',
+      'Commission: 25% GP on upsells · 35% GP on new clients (yr 1) · 10% on rebooks after 12 months',
     ],
     cta: 'Most popular — book a call',
     highlight: true,
     accent: '#1a6ef5',
   },
   {
-    name: 'Performance',
+    name: 'Partner',
     price: 'Custom',
     period: '',
-    tagline: '% of GP or hybrid structure',
-    desc: 'Fully aligned to your outcomes. We take a percentage of the revenue growth we generate — ideal for businesses with ambitious targets.',
+    tagline: 'Full commercial embedding',
+    desc: 'Fractional Head of Sales capability with full group support. Board-level reporting, hiring support, and bespoke scope.',
     features: [
-      'Full commercial embedding',
-      'Revenue-share or hybrid pricing',
-      'Fractional Head of Sales capability',
-      'Hiring and team build support',
+      'Everything in Scale',
+      'Fractional Head of Sales',
+      'Hiring brief and interview process',
       'Board-level reporting',
+      'RiskSorted onboarding (free)',
       'Bespoke scope by agreement',
     ],
     cta: 'Let\'s talk',
@@ -65,20 +65,24 @@ const tiers = [
 
 const faqs = [
   {
+    q: 'What is the commission model?',
+    a: 'You always pay the higher of your retainer or commission earned. Commission is 25% of GP on upsells to existing clients, 35% of GP on new clients won in year one, and 10% on rebooks after 12 months. Commission applies to GP not revenue.',
+  },
+  {
+    q: 'Is there a performance-only option?',
+    a: 'Yes. For businesses not yet ready for a retainer, we offer a performance-only model with no monthly fee — commission rates apply as above with a 12-month minimum commitment.',
+  },
+  {
     q: 'Is there a minimum commitment?',
-    a: 'Foundation starts month-to-month after an initial 3-month period. Growth and Performance engagements are typically 6–12 months to allow enough time to see meaningful results.',
+    a: 'Spark is month-to-month after an initial 3-month period. Scale and Partner engagements are typically 6–12 months to allow enough time to see meaningful results.',
   },
   {
-    q: 'Do you work with businesses outside compliance/H&S?',
+    q: 'How does the RiskSorted onboarding work?',
+    a: 'Eligible Hi-Venture clients can be vetted and onboarded to RiskSorted — our UK compliance marketplace — at no cost, giving access to a live inbound pipeline from day one.',
+  },
+  {
+    q: 'Do you work outside compliance and H&S?',
     a: 'Our deepest expertise is in compliance and B2B services, but the commercial principles apply broadly to any UK SME selling to businesses. Book a call and we\'ll be straight with you about fit.',
-  },
-  {
-    q: 'What does a % of GP model look like?',
-    a: 'We agree a base retainer (lower than Growth) plus a percentage of gross profit generated above a defined baseline. The exact split depends on the scope and baseline revenue.',
-  },
-  {
-    q: 'Can I start with a project rather than a retainer?',
-    a: 'Yes. We offer scoped project work (e.g. sales audit, brand identity, CRM setup) as standalone engagements. Get in touch with what you need and we\'ll quote accordingly.',
   },
 ]
 
@@ -96,7 +100,7 @@ export default function PricingPage() {
             Aligned to your outcomes
           </h1>
           <p className="text-[#8899bb] text-lg max-w-2xl mx-auto">
-            Three engagement models built around how SMEs actually work. From structured strategy support to full commercial embedding.
+            A simple model: you always pay the higher of your retainer or commission earned. We only win when you do.
           </p>
         </div>
       </section>
@@ -152,54 +156,56 @@ export default function PricingPage() {
               </div>
             ))}
           </div>
+
+          {/* Performance-only callout */}
+          <div className="mt-6 card p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
+            <div>
+              <h3 className="text-white font-semibold mb-1">Performance-only model available</h3>
+              <p className="text-[#8899bb] text-sm">No retainer. Commission only. Available for clients not yet ready for a monthly fee — 12-month minimum commitment required.</p>
+            </div>
+            <Link href="/contact" className="btn-outline whitespace-nowrap flex-shrink-0">
+              Ask about this
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* What's always included */}
+      {/* How commission works */}
       <section className="section bg-[#0d1222]">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Always included</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <h2 className="text-2xl font-bold text-white mb-2 text-center">How the commission model works</h2>
+          <p className="text-[#8899bb] text-sm text-center mb-8">You always pay the higher of your retainer or commission earned — never both.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              'Direct access to the founder — not an account manager',
-              'UK-specific commercial expertise across compliance and B2B services',
-              'Honest diagnosis, even when the answer isn\'t what you hoped for',
-              'All work built around your specific business, never a template',
+              { rate: '25%', label: 'GP on upsells', desc: 'Additional services sold to your existing clients.' },
+              { rate: '35%', label: 'GP on new clients', desc: 'New clients won in year one of the relationship.' },
+              { rate: '10%', label: 'GP on rebooks', desc: 'Clients who rebook after the first 12 months.' },
             ].map(item => (
-              <div key={item} className="card p-4 flex gap-3">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-0.5 flex-shrink-0">
-                  <path d="M3 8 L6 11 L13 4" stroke="#00d68f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span className="text-[#8899bb] text-sm">{item}</span>
+              <div key={item.label} className="card p-6 text-center">
+                <div className="text-[#1a6ef5] font-bold text-3xl mb-1">{item.rate}</div>
+                <div className="text-white font-semibold text-sm mb-2">{item.label}</div>
+                <p className="text-[#8899bb] text-xs">{item.desc}</p>
               </div>
             ))}
           </div>
+          <p className="text-[#8899bb] text-xs text-center mt-4">All fees + VAT · Commission applies to GP not revenue</p>
         </div>
       </section>
 
-      {/* FAQs */}
+      {/* Vs hiring */}
       <section className="section">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Common questions</h2>
-          <div className="space-y-4">
-            {faqs.map(faq => (
-              <div key={faq.q} className="card p-6">
-                <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
-                <p className="text-[#8899bb] text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section bg-[#0d1222]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Not sure which tier is right?</h2>
-          <p className="text-[#8899bb] mb-8">Start with a free 30-minute discovery call and we'll tell you exactly what we'd recommend.</p>
-          <Link href="/contact" className="btn-primary">Book a free call</Link>
-        </div>
-      </section>
-    </>
-  )
-}
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-white mb-2 text-center">Less than the cost of one hire. None of the risk.</h2>
+          <p className="text-[#8899bb] text-sm text-center mb-8">Scale tier shown.</p>
+          <div className="card overflow-hidden">
+            <div className="grid grid-cols-3 bg-[#0d1222] px-6 py-3 text-xs font-semibold text-[#8899bb] uppercase tracking-wide">
+              <div></div>
+              <div className="text-center">One salesperson</div>
+              <div className="text-center text-[#1a6ef5]">Hi-Venture Scale</div>
+            </div>
+            {[
+              { label: 'Monthly cost', a: '£3,300+', b: '£1,750' },
+              { label: 'Employer NI', a: '£350/mo', b: 'None' },
+              { label: 'Pension', a: '£88/mo', b: 'None' },
+              { label: 'Recruitment fee', a: '£3,500–7,000', b: 'None' },
+              { label: 'Notice pe
